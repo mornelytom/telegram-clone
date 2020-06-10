@@ -9,4 +9,6 @@
     <string name="settings_label_login">Username</string>
     <string name="settings_bio_label">About</string>
     <string name="settings_default_bio">Something about you</string>
+    <string name="settings_menu_change_username">Change username</string>
+    <string name="settings_menu_logout">Logout</string>
 </resources>
