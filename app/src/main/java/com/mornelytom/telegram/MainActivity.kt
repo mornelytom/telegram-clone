@@ -1,11 +1,15 @@
 package com.mornelytom.telegram
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import com.mornelytom.telegram.activities.AuthorizationActivity
 import com.mornelytom.telegram.databinding.ActivityMainBinding
 import com.mornelytom.telegram.ui.fragments.ChatFragment
 import com.mornelytom.telegram.ui.objects.AppDrawer
+import com.mornelytom.telegram.utilits.replaceActivity
+import com.mornelytom.telegram.utilits.replaceFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,13 +31,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        setSupportActionBar(mToolbar)
-        mAppDrawer.create()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.dataContainer,
-                ChatFragment()
-            )
-            .commit()
+        if (true) {
+            setSupportActionBar(mToolbar)
+            mAppDrawer.create()
+            replaceFragment(ChatFragment())
+        } else {
+            replaceActivity(AuthorizationActivity())
+        }
+
     }
 
     private fun initFields() {
