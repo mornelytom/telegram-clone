@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import com.mornelytom.telegram.R
 import com.mornelytom.telegram.databinding.ActivityAuthorizationBinding
 import com.mornelytom.telegram.ui.fragments.EnterPhoneFragment
+import com.mornelytom.telegram.utilits.replaceFragment
 
 class AuthorizationActivity : AppCompatActivity() {
 
@@ -23,8 +24,6 @@ class AuthorizationActivity : AppCompatActivity() {
         mToolbar = mBinding.authToolbar
         setSupportActionBar(mToolbar)
         title = getString(R.string.auth_title_phone)
-        supportFragmentManager.beginTransaction()
-            .add(R.id.authDataContainer, EnterPhoneFragment())
-            .commit()
+        replaceFragment(EnterPhoneFragment())
     }
 }

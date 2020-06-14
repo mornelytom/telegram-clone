@@ -8,6 +8,8 @@ import com.mornelytom.telegram.activities.AuthorizationActivity
 import com.mornelytom.telegram.databinding.ActivityMainBinding
 import com.mornelytom.telegram.ui.fragments.ChatFragment
 import com.mornelytom.telegram.ui.objects.AppDrawer
+import com.mornelytom.telegram.utilits.replaceActivity
+import com.mornelytom.telegram.utilits.replaceFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,18 +31,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        if (false) {
+        if (true) {
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.dataContainer,
-                    ChatFragment()
-                )
-                .commit()
+            replaceFragment(ChatFragment())
         } else {
-            val intent = Intent(this, AuthorizationActivity::class.java)
-            startActivity(intent)
+            replaceActivity(AuthorizationActivity())
         }
 
     }

@@ -5,8 +5,8 @@
     <string name="settings_text_account">Account</string>
     <string name="settings_default_number">+79000000000</string>
     <string name="settings_change_number">Change number</string>
-    <string name="settings_default_login">senko-san</string>
-    <string name="settings_label_login">Username</string>
+    <string name="settings_default_username">senko-san</string>
+    <string name="settings_label_username">Username</string>
     <string name="settings_bio_label">About</string>
     <string name="settings_default_bio">Something about you</string>
     <string name="settings_menu_change_username">Change username</string>
