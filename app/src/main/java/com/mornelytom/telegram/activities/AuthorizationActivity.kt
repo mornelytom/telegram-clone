@@ -24,6 +24,6 @@ class AuthorizationActivity : AppCompatActivity() {
         mToolbar = mBinding.authToolbar
         setSupportActionBar(mToolbar)
         title = getString(R.string.auth_title_phone)
-        replaceFragment(EnterPhoneFragment())
+        replaceFragment(EnterPhoneFragment(), false)
     }
 }
