@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import com.mornelytom.telegram.R
 import com.mornelytom.telegram.databinding.ActivityAuthorizationBinding
 import com.mornelytom.telegram.ui.fragments.EnterPhoneFragment
+import com.mornelytom.telegram.utilits.initFirebase
 import com.mornelytom.telegram.utilits.replaceFragment
 
 class AuthorizationActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class AuthorizationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityAuthorizationBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
+        initFirebase()
     }
 
     override fun onStart() {
