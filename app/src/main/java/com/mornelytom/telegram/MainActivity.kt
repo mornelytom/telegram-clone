@@ -1,6 +1,5 @@
 package com.mornelytom.telegram
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
@@ -16,7 +15,7 @@ import com.mornelytom.telegram.utilits.replaceFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var mAppDrawer: AppDrawer
+    lateinit var mAppDrawer: AppDrawer
     private lateinit var mToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
