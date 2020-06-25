@@ -8,6 +8,7 @@ import com.mornelytom.telegram.R
 import com.mornelytom.telegram.activities.AuthorizationActivity
 import com.mornelytom.telegram.utilits.AUTH
 import com.mornelytom.telegram.utilits.replaceActivity
+import com.mornelytom.telegram.utilits.replaceFragment
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
@@ -26,6 +27,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
                 AUTH.signOut()
                 (activity as MainActivity).replaceActivity(AuthorizationActivity())
             }
+            R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
         return true
     }

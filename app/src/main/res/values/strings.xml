@@ -9,7 +9,7 @@
     <string name="settings_label_username">Username</string>
     <string name="settings_bio_label">About</string>
     <string name="settings_default_bio">Something about you</string>
-    <string name="settings_menu_change_username">Change username</string>
+    <string name="settings_menu_change_username">Change name</string>
     <string name="settings_menu_logout">Logout</string>
     <string name="cd_auth_image">auth_image</string>
     <string name="auth_code_desc">We\'ve sent an SMS with an activation code to your phone</string>
@@ -18,4 +18,8 @@
     <string name="auth_title_phone">Your Phone</string>
     <string name="auth_toast_enter_phone">Enter phone number</string>
     <string name="phone_enter_hint">- --- -- --</string>
+    <string name="settings_hint_name">Name</string>
+    <string name="settings_input_hint_surname">Surname</string>
+    <string name="settings_toast_name_is_empty">Name can\'t be empty</string>
+    <string name="toast_data_update">Data update</string>
 </resources>
