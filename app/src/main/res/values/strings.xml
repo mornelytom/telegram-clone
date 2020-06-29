@@ -22,4 +22,5 @@
     <string name="settings_input_hint_surname">Surname</string>
     <string name="settings_toast_name_is_empty">Name can\'t be empty</string>
     <string name="toast_data_update">Data update</string>
+    <string name="settings_hint_input_username">\@username</string>
 </resources>

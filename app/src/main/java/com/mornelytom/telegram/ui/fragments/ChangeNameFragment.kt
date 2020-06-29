@@ -3,7 +3,6 @@ package com.mornelytom.telegram.ui.fragments
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import androidx.fragment.app.Fragment
 import com.mornelytom.telegram.MainActivity
 import com.mornelytom.telegram.R
 import com.mornelytom.telegram.utilits.*
