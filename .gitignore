@@ -12,3 +12,4 @@ l*.iml
 /captures
 .externalNativeBuild
 .cxx
+google-services.json
