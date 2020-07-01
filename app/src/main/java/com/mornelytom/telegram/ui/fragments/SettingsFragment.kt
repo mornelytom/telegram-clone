@@ -3,13 +3,11 @@ package com.mornelytom.telegram.ui.fragments
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import com.mornelytom.telegram.MainActivity
 import com.mornelytom.telegram.R
 import com.mornelytom.telegram.activities.AuthorizationActivity
-import com.mornelytom.telegram.utilits.AUTH
-import com.mornelytom.telegram.utilits.USER
-import com.mornelytom.telegram.utilits.replaceActivity
-import com.mornelytom.telegram.utilits.replaceFragment
+import com.mornelytom.telegram.utilits.*
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
@@ -28,6 +26,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         settings_status.text = USER.status
         settings_btn_change_username.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         settings_btn_change_bio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
+        settings_change_photo.setOnClickListener { changeUserPhoto() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -38,10 +37,18 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         when (item.itemId) {
             R.id.settings_menu_exit -> {
                 AUTH.signOut()
-                (activity as MainActivity).replaceActivity(AuthorizationActivity())
+                (APP_ACTIVITY).replaceActivity(AuthorizationActivity())
             }
             R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
         return true
+    }
+
+    private fun changeUserPhoto() {
+        CropImage.activity()
+            .setAspectRatio(1, 1)
+            .setRequestedSize(600, 600)
+            .setCropShape(CropImageView.CropShape.OVAL)
+            .start(APP_ACTIVITY)
     }
 }

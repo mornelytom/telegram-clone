@@ -1,27 +1,27 @@
 package com.mornelytom.telegram.ui.fragments
 
-import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import com.mornelytom.telegram.MainActivity
 import com.mornelytom.telegram.R
+import com.mornelytom.telegram.utilits.APP_ACTIVITY
 
 open class BaseChangeFragment(layout: Int) : Fragment(layout) {
 
     override fun onStart() {
         super.onStart()
         setHasOptionsMenu(true)
-        (activity as MainActivity).mAppDrawer.disableDrawer()
+        (APP_ACTIVITY).mAppDrawer.disableDrawer()
     }
 
     override fun onStop() {
         super.onStop()
+        APP_ACTIVITY.hideKeyboard()
     }
 
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        (activity as MainActivity).menuInflater.inflate(R.menu.settings_menu_confirm, menu)
+        (APP_ACTIVITY).menuInflater.inflate(R.menu.settings_menu_confirm, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -31,8 +31,6 @@ open class BaseChangeFragment(layout: Int) : Fragment(layout) {
         return true
     }
 
-    open fun change() {
-
-    }
+    open fun change() {}
 
 }
