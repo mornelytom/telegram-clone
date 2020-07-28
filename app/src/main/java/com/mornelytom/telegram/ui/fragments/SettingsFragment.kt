@@ -2,9 +2,11 @@ package com.mornelytom.telegram.ui.fragments
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import com.google.firebase.storage.StorageReference
 import com.mornelytom.telegram.R
 import com.mornelytom.telegram.activities.AuthorizationActivity
 import com.mornelytom.telegram.utilits.*
@@ -30,6 +32,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         settings_btn_change_username.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         settings_btn_change_bio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
         settings_change_photo.setOnClickListener { changeUserPhoto() }
+        settings_user_photo.downloadAndSetImage(USER.photoUrl)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -65,21 +68,12 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             val uri = CropImage.getActivityResult(data).uri
             // upload image to storage
             val path = REF_STORAGE_ROOT.child(FOLDER_PROFILE_IMAGE).child(UID)
-            path.putFile(uri).addOnCompleteListener { putTask ->
-                if (putTask.isSuccessful) {
-                    // download image from storage
-                    path.downloadUrl.addOnCompleteListener { downloadTask ->
-                        if (downloadTask.isSuccessful) {
-                            val photoUrl = downloadTask.result.toString()
-                            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(USER_PHOTO_URL)
-                                .setValue(photoUrl).addOnCompleteListener { databaseTask ->
-                                    if (databaseTask.isSuccessful) {
-                                        settings_user_photo.downloadAndSetImage(photoUrl)
-                                        showToast(getString(R.string.toast_data_update))
-                                        USER.photoUrl = photoUrl
-                                    }
-                                }
-                        }
+            putImageStorage(uri, path) {
+                getUrlFromStorage(path) {
+                    putUrlToDatabase(it) {
+                        settings_user_photo.downloadAndSetImage(it)
+                        showToast(getString(R.string.toast_data_update))
+                        USER.photoUrl = it
                     }
                 }
             }
