@@ -25,6 +25,7 @@ const val USER_NAME = "username"
 const val USER_FULLNAME = "fullname"
 const val USER_BIO = "bio"
 const val USER_PHOTO_URL = "photoUrl"
+const val USER_STATE = "state"
 
 fun initFirebase() {
     AUTH = FirebaseAuth.getInstance()
